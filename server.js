@@ -11,6 +11,11 @@ const webpackConfig = require('./webpack.config.js');
 const app = express();
 const port = process.env.PORT || 8080;
 
+/**
+ * @TODO It would be simpler to use {@link https://nextjs.org/ Next.js} or {@link https://flareact.com/ Flareact} for
+ * all of this. There is a ton of boilerplate configuration that could be handle for us.
+ */
+
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'jsx');
 app.engine('jsx', createEngine());
