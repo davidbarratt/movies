@@ -4,13 +4,13 @@ const HttpError = require('../errors/http.js');
 /**
  * Proxy The Movie Database API.
  *
- * This proxy is not necessary because The Movie Database API responds with the proper CORS headers
- * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin}
- * which allows the API to be read from the browser.
+ * This proxy is not necessary because The Movie Database API responds with the proper
+ * {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin CORS headers}
+ * which allow the API to be read from the browser.
  *
- * It may have been wise to conceal the API Key from the client, but the company has stated it is
- * acceptable to expose the API key to the client
- * {@link https://www.themoviedb.org/talk/5b6b0e08925141406a1134de}.
+ * It may have been wise to conceal the API Key from the client, but the company
+ * {@link https://www.themoviedb.org/talk/5b6b0e08925141406a1134de has stated} it is acceptable to
+ * expose the API key to the client.
  *
  * Making a direct request would be more efficient because The Movie Database API caches the API
  * responses on a CDN.
