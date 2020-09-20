@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const HttpError = require('../errors/http.js');
 
 /**
  * Proxy The Movie Database API.
@@ -15,17 +14,21 @@ const HttpError = require('../errors/http.js');
  * Making a direct request would be more efficient because The Movie Database API caches the API
  * responses on a CDN.
  */
-async function proxyHandler({ url }) {
+async function proxyHandler(req, res) {
   if (!process.env.TMDB_API_KEY) {
-    throw new HttpError(500, 'Missing TMDB_API_KEY');
+    throw new Error('Missing TMDB_API_KEY');
   }
+
+  const url = new URL(req.url, `http://${req.headers.host}`);
 
   const tmdbURL = new URL(url.pathname.replace(/^\/api\//, ''), 'https://api.themoviedb.org/3/');
   tmdbURL.search = url.search;
   tmdbURL.searchParams.set('api_key', process.env.TMDB_API_KEY);
 
   const response = await fetch(tmdbURL);
-  return response.json();
+  const data = await response.json();
+
+  return res.send(data);
 }
 
 module.exports = proxyHandler;
