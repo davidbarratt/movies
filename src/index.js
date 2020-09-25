@@ -1,4 +1,6 @@
+import React from 'react';
+import { render } from 'react-dom';
+import App from './app';
 import '../styles/global.scss';
 
-// eslint-disable-next-line no-console
-console.log('hello world!');
+render(<App />, document.getElementById('root'));

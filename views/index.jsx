@@ -4,6 +4,7 @@ function Index() {
   return (
     <html lang="en">
       <head>
+        <title>Movies</title>
         <link rel="stylesheet" href="/dist/styles/global.css" />
         <script src="/dist/main.js" type="text/javascript" async />
       </head>
