@@ -7,7 +7,7 @@ import {
 import { IntlProvider } from '@wikimedia/react.i18n';
 import useReactor from '@cinematix/reactor';
 import { mergeMap, map } from 'rxjs/operators';
-import { fromFetch } from 'rxjs/fetch';
+import tmdbFetch from './utils/tmdb-fetch';
 import AppContext from './context/app';
 import Index from './pages/index';
 import NotFound from './pages/not-found';
@@ -36,7 +36,7 @@ function reactor(value$) {
   return value$.pipe(
     mergeMap(() => (
       // @TODO Handle Request failures.
-      fromFetch('/api/configuration').pipe(
+      tmdbFetch('configuration').pipe(
         mergeMap((response) => response.json()),
         map((data) => ({
           type: CONFIG_SET,

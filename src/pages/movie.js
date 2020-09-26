@@ -6,9 +6,9 @@ import { merge } from 'rxjs';
 import {
   mergeMap, switchMap, map,
 } from 'rxjs/operators';
-import { fromFetch } from 'rxjs/fetch';
 import { DateTime } from 'luxon';
 import { Message } from '@wikimedia/react.i18n';
+import tmdbFetch from '../utils/tmdb-fetch';
 import Layout from '../components/layout';
 import Middle from '../components/middle';
 import Poster from '../components/poster';
@@ -45,14 +45,14 @@ function reactor(value$) {
     switchMap(([id]) => (
       // @TODO Handle errors and 404s
       merge(
-        fromFetch(`/api/movie/${id}`).pipe(
+        tmdbFetch(`movie/${id}`).pipe(
           mergeMap((response) => response.json()),
           map((data) => ({
             type: MOVIE_SET,
             payload: data,
           })),
         ),
-        fromFetch(`/api/movie/${id}/credits`).pipe(
+        tmdbFetch(`movie/${id}/credits`).pipe(
           mergeMap((response) => response.json()),
           map((data) => ({
             type: CREDITS_SET,
@@ -119,7 +119,7 @@ function Crew({ list }) {
           <thead>
             <tr>
               <th className="w-50" scope="col"><Message id="name" /></th>
-              <th className="w-50" scope="col"><Message id="job" /></th>
+              <th className="w-50" scope="col"><Message id="role" /></th>
             </tr>
           </thead>
           <tbody>

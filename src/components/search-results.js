@@ -3,9 +3,9 @@ import { of, concat } from 'rxjs';
 import {
   debounceTime, switchMap, mergeMap, map,
 } from 'rxjs/operators';
-import { fromFetch } from 'rxjs/fetch';
 import useReactor from '@cinematix/reactor';
 import { Message } from '@wikimedia/react.i18n';
+import tmdbFetch from '../utils/tmdb-fetch';
 import useSearchQuery from '../hooks/search-query';
 import Movies from './movies';
 import Middle from './middle';
@@ -50,15 +50,17 @@ function reactor(value$) {
         return of({ type: RESET });
       }
 
-      const url = new URL('/api/search/movie', window.location);
-      url.searchParams.set('query', searchQuery);
+      const searchParams = new URLSearchParams();
+      searchParams.set('query', searchQuery);
+
+      const path = `search/movie?${searchParams}`;
 
       return concat(
         of({
           type: STATUS_SET,
           payload: STATUS_FETCHING,
         }),
-        fromFetch(url).pipe(
+        tmdbFetch(path).pipe(
           mergeMap((result) => result.json()),
           map(({ results }) => ({
             type: RESULT_SET,

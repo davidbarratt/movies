@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import { mergeMap, map } from 'rxjs/operators';
-import { fromFetch } from 'rxjs/fetch';
 import useReactor from '@cinematix/reactor';
+import tmdbFetch from '../utils/tmdb-fetch';
 import Layout from '../components/layout';
 import Movies from '../components/movies';
 
@@ -27,7 +27,7 @@ function popularReactor(value$) {
   return value$.pipe(
     mergeMap(() => (
       // @TODO Handle Request failures.
-      fromFetch('/api/movie/popular').pipe(
+      tmdbFetch('movie/popular').pipe(
         mergeMap((response) => response.json()),
         map(({ results }) => ({
           type: POPULAR_SET,
