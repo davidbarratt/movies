@@ -2,5 +2,9 @@
   "ellipsis": "…",
   "search": "The term for performing a search on a site",
   "search-ellipsis": "A prompt to search with ellipsis.\nParameters:\n1. {{msg-mw|search}}\n 2. {{msg-mw|ellipsis}}",
-  "sitename": "The name of the site"
+  "sitename": "The name of the site",
+  "tmdb": "Acronym for The Movie Database",
+  "tmdb-api": "Acronym for The Movie Database Application Programing Interface",
+  "footer-attribution-flaticon": "Required attribution for icon used as a logo.\nParameters:\n1. Flaticon username\n2. Flaticon domain name",
+  "footer-attribution-tmdb": "Required attribution for TMDb API.\nParameters:\n1. {{msg-mw|tmdb}}\n2. {{msg-mw|tmdb-api}}"
 }

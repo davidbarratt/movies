@@ -2,5 +2,9 @@
   "ellipsis": "…",
   "search": "Search",
   "search-ellipsis": "$1$2",
-  "sitename": "Movies"
+  "sitename": "Movies",
+  "tmdb": "TMDb",
+  "tmdb-api": "TMDb API",
+  "footer-attribution-flaticon": "Logo icon made by $1 from $2",
+  "footer-attribution-tmdb": "This product uses the $2 but is not endorsed or certified by $1."
 }
