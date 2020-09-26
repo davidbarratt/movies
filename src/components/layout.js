@@ -16,7 +16,6 @@ function Layout({ children }) {
           <div className="row">
             <div className="col-auto mb-1 mt-1 border-right">
               <Link to="/">
-                {/* @TODO Put the icon attribution somewhere https://www.flaticon.com/free-icon/movie-roll_72279 */}
                 <svg
                   version="1.1"
                   viewBox="0 0 611.999 611.999"
