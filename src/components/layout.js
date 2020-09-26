@@ -20,7 +20,11 @@ function Layout({ children }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+
+Layout.defaultProps = {
+  children: undefined,
 };
 
 export default Layout;

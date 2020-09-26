@@ -5,6 +5,7 @@ $primary: #80c4d1;
 $secondy: #5490b9;
 $body-bg: #474b51;
 $body-color: #DAC1AF;
+$font-size-base: 1.1rem;
 
 @import '~bootstrap';
 
@@ -35,4 +36,8 @@ header {
 
 .card {
   background-color: scale-color($body-bg, $lightness: 10%);
+}
+
+table caption {
+  caption-side: top;;
 }

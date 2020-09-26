@@ -11,6 +11,7 @@ import { fromFetch } from 'rxjs/fetch';
 import AppContext from './context/app';
 import Index from './pages/index';
 import NotFound from './pages/not-found';
+import Movie from './pages/movie';
 import en from '../i18n/en.json';
 
 const initialState = {
@@ -63,6 +64,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Index />
+            </Route>
+            <Route path="/movie/:id">
+              <Movie />
             </Route>
             <Route path="*">
               <NotFound />

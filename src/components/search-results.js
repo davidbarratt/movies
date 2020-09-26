@@ -5,8 +5,10 @@ import {
 } from 'rxjs/operators';
 import { fromFetch } from 'rxjs/fetch';
 import useReactor from '@cinematix/reactor';
+import { Message } from '@wikimedia/react.i18n';
 import useSearchQuery from '../hooks/search-query';
 import Movies from './movies';
+import Middle from './middle';
 
 const RESET = 'RESET';
 const RESULT_SET = 'RESULT_SET';
@@ -82,11 +84,9 @@ function SearchResults() {
 
   if (state.status === STATUS_DONE && state.results.length === 0) {
     return (
-      <div className="row flex-grow-1">
-        <div className="col align-self-center">
-          <h2 className="text-center">No Results</h2>
-        </div>
-      </div>
+      <Middle>
+        <h2 className="text-center"><Message id="no-results" /></h2>
+      </Middle>
     );
   }
 

@@ -1,14 +1,14 @@
+import { Message } from '@wikimedia/react.i18n';
 import React from 'react';
+import Middle from '../components/middle';
 import Layout from '../components/layout';
 
 function NotFound() {
   return (
     <Layout>
-      <div className="row flex-grow-1">
-        <div className="col align-self-center">
-          <h2 className="text-center">Page Not Found</h2>
-        </div>
-      </div>
+      <Middle>
+        <h2 className="text-center"><Message id="not-found" /></h2>
+      </Middle>
     </Layout>
   );
 }

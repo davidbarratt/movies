@@ -1,5 +1,12 @@
 {
+  "cast": "Cast",
+  "character": "Character",
+  "crew": "Crew",
   "ellipsis": "…",
+  "job": "Job",
+  "name": "Name",
+  "no-results": "No Results",
+  "not-found": "Page Not Found",
   "search": "Search",
   "search-ellipsis": "$1$2",
   "sitename": "Movies",

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import usePosterBaseUrl from '../hooks/poster-url';
+import Poster from './poster';
+import { DateTime } from 'luxon';
 
 function MovieLink({ id, children }) {
   return (
@@ -17,19 +18,13 @@ MovieLink.propTypes = {
 };
 
 function PosterImage({ id, path, alt }) {
-  const posterBaseUrl = usePosterBaseUrl();
-
-  if (!posterBaseUrl) {
-    return null;
-  }
-
   if (!path) {
     return null;
   }
 
   return (
     <MovieLink id={id}>
-      <img src={posterBaseUrl + path} alt={alt} className="w-100" />
+      <Poster path={path} alt={alt} />
     </MovieLink>
   );
 }
@@ -45,6 +40,36 @@ PosterImage.defaultProps = {
   alt: undefined,
 };
 
+function Movie({ id, title, posterPath, releaseDate, }) {
+  const release = releaseDate ? DateTime.fromISO(releaseDate) : undefined;
+  const date = release ? release.toLocaleString(DateTime.DATE_MED) : undefined;
+
+  return (
+    <li className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
+      <div className="card flex-grow-1">
+        <PosterImage id={id} path={posterPath} alt={title} />
+        <div className="card-body">
+          <h5 className="card-title"><MovieLink id={id}>{title}</MovieLink></h5>
+          <p>{date}</p>
+        </div>
+      </div>
+    </li>
+  );
+}
+
+Movie.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  posterPath: PropTypes.string,
+  releaseDate: PropTypes.string,
+};
+
+Movie.defaultProps = {
+  title: undefined,
+  posterPath: undefined,
+  releaseDate: undefined,
+};
+
 /**
  * Grid of Movies based on a result list.
  */
@@ -53,15 +78,14 @@ function Movies({ list }) {
     <div className="row">
       <div className="col">
         <ol className="list-unstyled row">
-          {list.map(({ id, title, poster_path: posterPath }) => (
-            <li key={id} className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-3">
-              <div className="card flex-grow-1">
-                <PosterImage id={id} path={posterPath} alt={title} />
-                <div className="card-body">
-                  <h5 className="card-title"><MovieLink id={id}>{title}</MovieLink></h5>
-                </div>
-              </div>
-            </li>
+          {list.map(({ id, title, poster_path: posterPath, release_date: releaseDate }) => (
+            <Movie
+              key={id}
+              id={id}
+              title={title}
+              posterPath={posterPath}
+              releaseDate={releaseDate}
+            />
           ))}
         </ol>
       </div>
@@ -74,6 +98,7 @@ Movies.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string,
     poster_path: PropTypes.string,
+    release_date: PropTypes.string,
   })),
 };
 

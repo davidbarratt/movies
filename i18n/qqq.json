@@ -1,5 +1,12 @@
 {
+  "cast": "Name for performers in a motion picture.",
+  "character": "A person, animal, or object that is played by an actor or actress.",
+  "crew": "Name for off-camera workers in a motion picture.",
   "ellipsis": "…",
+  "job": "Name for the function an off-camera worker performs",
+  "name": "Label that is given to a person",
+  "no-results": "Error message displayed when no search results are returned.",
+  "not-found": "Error message displayed when the page is not found.",
   "search": "The term for performing a search on a site",
   "search-ellipsis": "A prompt to search with ellipsis.\nParameters:\n1. {{msg-mw|search}}\n 2. {{msg-mw|ellipsis}}",
   "sitename": "The name of the site",
