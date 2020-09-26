@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const { createEngine } = require('express-react-views');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const proxyHandler = require('./handlers/proxy.js');
-const searchHandler = require('./handlers/search.js');
+const appHandler = require('./handlers/app.js');
 const webpackConfig = require('./webpack.config.js');
 
 const app = express();
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use('/dist', express.static(join(__dirname, 'dist')));
 
 app.all(/^\/api\//, proxyHandler);
-app.get('/', searchHandler);
+app.get('*', appHandler);
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

@@ -1,0 +1,6 @@
+{
+  "ellipsis": "…",
+  "search": "The term for performing a search on a site",
+  "search-ellipsis": "A prompt to search with ellipsis.\nParameters:\n1. {{msg-mw|search}}\n 2. {{msg-mw|ellipsis}}",
+  "sitename": "The name of the site"
+}

@@ -32,3 +32,7 @@ header {
   width: 30px;
   height: auto;
 }
+
+.card {
+  background-color: scale-color($body-bg, $lightness: 10%);
+}
