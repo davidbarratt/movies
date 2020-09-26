@@ -82,8 +82,8 @@ function SearchResults() {
 
   if (state.status === STATUS_DONE && state.results.length === 0) {
     return (
-      <div className="row">
-        <div className="col">
+      <div className="row flex-grow-1">
+        <div className="col align-self-center">
           <h2 className="text-center">No Results</h2>
         </div>
       </div>

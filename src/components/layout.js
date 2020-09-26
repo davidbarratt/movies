@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Message } from '@wikimedia/react.i18n';
 import SearchForm from './search-form';
 import useSearchQuery from '../hooks/search-query';
 import SearchResults from './search-results';
-import { Message } from '@wikimedia/react.i18n';
 
 function Layout({ children }) {
   const searchQuery = useSearchQuery();
@@ -34,13 +34,13 @@ function Layout({ children }) {
           </div>
         </div>
       </header>
-      <main className="container flex-grow-1">
+      <main className="container d-flex flex-column flex-grow-1">
         {searchQuery ? <SearchResults /> : children}
       </main>
       <footer>
         <div className="container">
           <div className="row mb-3">
-            <div className="col-2">
+            <div className="col-12 col-sm-3 col-md-2 mb-3">
               <a href="https://www.themoviedb.org/" target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.42 35.52">
                   <g id="Layer_2" data-name="Layer 2">
@@ -51,7 +51,7 @@ function Layout({ children }) {
                 </svg>
               </a>
             </div>
-            <div className="col-10">
+            <div className="col-12 col-sm">
               <Message
                 id="footer-attribution-tmdb"
                 placeholders={[
