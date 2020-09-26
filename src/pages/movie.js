@@ -76,15 +76,15 @@ function Cast({ list }) {
           <caption><h4><Message id="cast" /></h4></caption>
           <thead>
             <tr>
-              <th scope="col"><Message id="name" /></th>
-              <th scope="col"><Message id="character" /></th>
+              <th className="w-50" scope="col"><Message id="name" /></th>
+              <th className="w-50" scope="col"><Message id="character" /></th>
             </tr>
           </thead>
           <tbody>
             {list.map(({ credit_id: id, name, character }) => (
               <tr key={id}>
-                <th scope="row">{name}</th>
-                <td>{character}</td>
+                <th className="w-50" scope="row">{name}</th>
+                <td className="w-50">{character}</td>
               </tr>
             ))}
           </tbody>
@@ -118,15 +118,15 @@ function Crew({ list }) {
           <caption><h4><Message id="crew" /></h4></caption>
           <thead>
             <tr>
-              <th scope="col"><Message id="name" /></th>
-              <th scope="col"><Message id="job" /></th>
+              <th className="w-50" scope="col"><Message id="name" /></th>
+              <th className="w-50" scope="col"><Message id="job" /></th>
             </tr>
           </thead>
           <tbody>
             {list.map(({ credit_id: id, name, job }) => (
               <tr key={id}>
-                <th scope="row">{name}</th>
-                <td>{job}</td>
+                <th className="w-50" scope="row">{name}</th>
+                <td className="w-50">{job}</td>
               </tr>
             ))}
           </tbody>

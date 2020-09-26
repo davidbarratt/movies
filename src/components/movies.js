@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Poster from './poster';
 import { DateTime } from 'luxon';
+import Poster from './poster';
 
 function MovieLink({ id, children }) {
   return (
@@ -40,7 +40,9 @@ PosterImage.defaultProps = {
   alt: undefined,
 };
 
-function Movie({ id, title, posterPath, releaseDate, }) {
+function Movie({
+  id, title, posterPath, releaseDate,
+}) {
   const release = releaseDate ? DateTime.fromISO(releaseDate) : undefined;
   const date = release ? release.toLocaleString(DateTime.DATE_MED) : undefined;
 
@@ -78,7 +80,9 @@ function Movies({ list }) {
     <div className="row">
       <div className="col">
         <ol className="list-unstyled row">
-          {list.map(({ id, title, poster_path: posterPath, release_date: releaseDate }) => (
+          {list.map(({
+            id, title, poster_path: posterPath, release_date: releaseDate,
+          }) => (
             <Movie
               key={id}
               id={id}
