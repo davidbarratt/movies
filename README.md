@@ -18,6 +18,8 @@ A simple movie website.
 
 ### Docker
  1. Get a `TMDB_API_KEY` at https://www.themoviedb.org/settings/api
- 1. `docker build . --tag movies`
- 2. `docker run -p 8888:80 -e TMDB_API_KEY=YOURAPIKEY movies`
- 5. Open browser and navigate to http://localhost:8888
+ 2. `docker build -t movies .`
+    - If you wish to use the TMDB API directly from the client, modify this command to:
+      `docker build --build-arg TMDB_API_KEY=YOURAPIKEY --build-arg TMDB_DIRECT=1 -t movies .`
+ 3. `docker run -p 8888:80 -e TMDB_API_KEY=YOURAPIKEY movies`
+ 4. Open browser and navigate to http://localhost:8888
