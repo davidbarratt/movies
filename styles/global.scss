@@ -14,7 +14,7 @@ body svg {
 }
 
 header {
-  background-color: $secondary;
+  background-color: scale-color($secondary, $alpha: -5%);
   color: $primary;
   .border-right {
     border-color: $body-bg !important;
