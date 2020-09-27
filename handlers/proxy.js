@@ -28,6 +28,7 @@ async function proxyHandler(req, res) {
   const response = await fetch(tmdbURL);
   const data = await response.json();
 
+  res.status(response.status);
   return res.send(data);
 }
 
