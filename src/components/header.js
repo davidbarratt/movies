@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Link, useHistory, useLocation, useRouteMatch
+  Link, useHistory, useLocation, useRouteMatch,
 } from 'react-router-dom';
 import SearchForm from './search-form';
 
